@@ -46,6 +46,11 @@ const totalInfoSchema = new mongoose.Schema({
 
 const TotalInfo = mongoose.model('TotalInfo', totalInfoSchema);
 
+app.get('/', (req, res) => {
+  const totalInfos = TotalInfo.find();
+      res.json(totalInfos);
+  res.send('Hello World!');
+});
 
 app.get('/totalinfo', async (req, res) => {
   try {
@@ -88,9 +93,6 @@ app.put('/totalinfo/:id', async (req, res) => {
 })
 
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
 
 async function clearTotalInfoCollection() {
   try {
