@@ -47,8 +47,6 @@ const totalInfoSchema = new mongoose.Schema({
 const TotalInfo = mongoose.model('TotalInfo', totalInfoSchema);
 
 app.get('/', (req, res) => {
-  const totalInfos = TotalInfo.find();
-      res.json(totalInfos);
   res.send('Hello World!');
 });
 
@@ -94,17 +92,17 @@ app.put('/totalinfo/:id', async (req, res) => {
 
 
 
-async function clearTotalInfoCollection() {
-  try {
+// async function clearTotalInfoCollection() {
+//   try {
  
-    await TotalInfo.deleteMany();
-    console.log("TotalInfo collection cleared successfully");
-  } catch (err) {
-    console.error("Error clearing TotalInfo collection:", err);
-  }
-}
+//     await TotalInfo.deleteMany();
+//     console.log("TotalInfo collection cleared successfully");
+//   } catch (err) {
+//     console.error("Error clearing TotalInfo collection:", err);
+//   }
+// }
 
-clearTotalInfoCollection();
+// clearTotalInfoCollection();
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
